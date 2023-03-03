@@ -37,7 +37,7 @@ public class CalcService {
         return simpleNumber(result);
     }
 
-    private Number simpleNumber(double result) throws NumberFormatException {
+    public Number simpleNumber(double result) {
         if (result == (int) result) {
             return (int) result;
         } else {
@@ -46,7 +46,7 @@ public class CalcService {
     }
 
 
-    private void validateCalcInput(List<CalcInput> inputs) {
+    public void validateCalcInput(List<CalcInput> inputs) {
         if (inputs.size() > 2) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "only 2 calculation are " +
                     "available at the same time");
@@ -71,7 +71,7 @@ public class CalcService {
         return input.stream().map(eval::evaluate).map(this::simpleNumber).toList();
     }
 
-    private void validateStringList(List<String> input) {
+    public void validateStringList(List<String> input) {
         for (String string : input) {
             checkDivisionByZero(string);
             for (int i = 0; i < string.length(); i++) {

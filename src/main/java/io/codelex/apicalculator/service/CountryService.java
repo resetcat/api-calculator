@@ -18,7 +18,7 @@ public class CountryService {
         return new Countries(createCountryList(response));
     }
 
-    private List<String> createCountryList(String response) {
+    public List<String> createCountryList(String response) {
         JSONArray list = new JSONArray(response);
         List<String> countryList = new ArrayList<>();
         for (int i = 0; i < list.length(); i++) {
