@@ -45,8 +45,7 @@ class SecurityConfig {
         http.exceptionHandling().authenticationEntryPoint((request, response, e) -> {
             response.setContentType("application/json;charset=UTF-8");
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-            response.getWriter()
-                    .write("You need valid key to access");
+            response.getWriter().write("You need valid key to access");
         });
 
         return http.build();
